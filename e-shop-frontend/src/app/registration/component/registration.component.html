@@ -1,0 +1,32 @@
+<form [formGroup]="regFormGroup" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="username" class="control-label required">Login</label>
+    <input id="username" type="text" name="username" class="form-control"
+           [formControl]="username">
+    <app-field-error-message
+      [displayError]="!isFieldValid('username')"
+      errorMsg="Please fill in your login">
+    </app-field-error-message>
+  </div>
+  <div class="form-group">
+    <label for="password" class="control-label required">Password</label>
+    <input id="password" type="password" name="password" class="form-control"
+           [formControl]="password">
+    <app-field-error-message
+      [displayError]="!isFieldValid('password')"
+      errorMsg="Please fill in your password">
+    </app-field-error-message>
+  </div>
+  <div class="form-group">
+    <label for="email" class="control-label required">E-mail</label>
+    <input id="email" name="email" class="form-control"
+           [formControl]="email">
+    <app-field-error-message
+      [displayError]="!isFieldValid('email')"
+      errorMsg="Please fill in your email">
+    </app-field-error-message>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Submit" [disabled]="regFormGroup.invalid" class="btn btn-success"/>
+  </div>
+</form>

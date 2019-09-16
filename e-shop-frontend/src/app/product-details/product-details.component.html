@@ -1,0 +1,9 @@
+<div *ngIf="product">
+  <img class="card-img-top" src="{{product.image}}" alt="http://placehold.it/700x400">
+  <div>${{product.price}}</div>
+  <div>{{product.description}}</div>
+  <form [formGroup]="form" (ngSubmit)="saveImage()" enctype="multipart/form-data">
+    <input type="file" accept="image/*" name="image" (change)="processImage($event)">
+    <input type="submit" value="submit">
+  </form>
+</div>
